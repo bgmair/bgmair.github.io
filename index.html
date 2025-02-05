@@ -32,6 +32,7 @@
             height: 100vh;
             width: 100%;
             overflow: hidden;
+            background-color: black;
         }
         .hero-background {
             position: absolute;
@@ -39,16 +40,19 @@
             left: 50%;
             width: 100%;
             height: 100%;
-            transform: translate(-50%, -50%) scale(1.1);
+            transform: translate(-50%, -50%);
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://img1.wsimg.com/isteam/stock/3944');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            transition: transform 0.3s ease-out;
+            transition: all 0.3s ease-out;
         }
         @media (max-width: 768px) {
             .hero-background {
-                transform: translate(-50%, -50%) scale(1.5);
+                width: 150%;
+                height: 150%;
+                background-size: contain;
+                background-position: center center;
             }
         }
         .hero-content {
