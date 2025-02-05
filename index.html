@@ -27,20 +27,70 @@
             opacity: 1;
             transition: opacity 0.3s ease-in;
         }
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        .hero-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%) scale(1.1);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://img1.wsimg.com/isteam/stock/3944');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: transform 0.3s ease-out;
+        }
+        @media (max-width: 768px) {
+            .hero-background {
+                transform: translate(-50%, -50%) scale(1.3);
+            }
+            .hero-section {
+                height: 100svh; /* Use small viewport height for mobile */
+            }
+        }
+        @media (orientation: landscape) and (max-width: 896px) {
+            .hero-section {
+                height: 100dvh; /* Use dynamic viewport height for landscape */
+            }
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+        @media (max-width: 640px) {
+            #mainTitle {
+                font-size: clamp(2rem, 8vw, 3.5rem);
+                line-height: 1.2;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col bg-black text-white font-sans">
-    <div id="headerLogo" class="fixed top-0 left-0 w-full z-10 fade-in">
+    <div id="headerLogo" class="fixed top-0 left-0 w-full z-20 fade-in">
         <div class="container mx-auto px-6 py-4 flex justify-center">
             <h3 class="text-xl md:text-2xl tracking-[0.2em] font-sans font-bold" role="heading" aria-level="3">BGMAIR</h3>
         </div>
     </div>
 
-    <div class="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" 
-         style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://img1.wsimg.com/isteam/stock/3944')">
-        <h1 id="mainTitle" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium tracking-wide text-white text-center px-4">
-            Fly Smart, Fly BGMAir
-        </h1>
+    <div class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 id="mainTitle" class="font-display font-medium tracking-wide text-white text-center">
+                Fly Smart, Fly BGMAir
+            </h1>
+        </div>
     </div>
 
     <div class="py-20 px-6 text-center bg-black">
